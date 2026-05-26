@@ -39,6 +39,12 @@
         <module>msvc-categories</module>
         <module>msvc-inventory</module>
         <module>msvc-users</module>
+        <module>msvc-auth</module>
+        <module>msvc-order</module>
+        <module>msvc-payment</module>
+        <module>msvc-shipping</module>
+        <module>msvc-promotion</module>
+        <module>msvc-notificacion</module>
     </modules>
 
 </project>
