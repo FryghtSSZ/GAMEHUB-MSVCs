@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/productos")
+@RequestMapping("/api/productos")
 @RequiredArgsConstructor
 public class ProductoController {
 
     private final ProductoService productoService;
 
     @PostMapping
-    public ResponseEntity<Producto> crear(@Valid @RequestBody ProductoRequestDTO request) {
-        return new ResponseEntity<>(productoService.crearProducto(request), HttpStatus.CREATED);
+    public ResponseEntity<Producto> crearProducto(@Valid @RequestBody ProductoRequestDTO request) {
+        return new ResponseEntity<>(productoService.crear(request), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<Producto>> listarActivos() {
-        return ResponseEntity.ok(productoService.listarProductosActivos());
+        return ResponseEntity.ok(productoService.listarTodos());
     }
 
     @GetMapping("/{id}")
@@ -35,7 +35,7 @@ public class ProductoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> desactivar(@PathVariable Long id) {
-        productoService.desactivarProducto(id);
+        productoService.desactivar(id);
         return ResponseEntity.noContent().build();
     }
 }
